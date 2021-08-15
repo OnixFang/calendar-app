@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { getMonthDays } from './calendarHelper';
 import CalendarDay from './CalendarDay';
 import MonthNavigator from './MonthNavigator';
+import DayDetails from './DayDetails';
 import Modal from './Modal';
 
 const Calendar = () => {
@@ -21,14 +22,14 @@ const Calendar = () => {
 
   const renderedDays = () => {
     return calendarDays.map((day, index) => (
-      <CalendarDay key={index} day={day} />
+      <CalendarDay key={index} day={day} onDayClick={toggleModal} />
     ));
   };
 
   return (
     <div className="calendar">
       <Modal modalIsOpen={modalIsOpen} closeModal={toggleModal}>
-        <p>Test</p>
+        <DayDetails />
       </Modal>
       <MonthNavigator currentDate={currentDate} />
       <div className="calendar-header">
@@ -41,11 +42,6 @@ const Calendar = () => {
         <span>Saturday</span>
       </div>
       <div className="calendar-body">{renderedDays()}</div>
-      <div>
-        <button onClick={toggleModal} className="btn waves-effect">
-          Open modal
-        </button>
-      </div>
     </div>
   );
 };

@@ -1,6 +1,15 @@
 import './CalendarDay.css';
+import { useDispatch } from 'react-redux';
+import { selectDay } from '../store/selectedDay/actions';
 
-const CalendarDay = ({ day }) => {
+const CalendarDay = ({ day, onDayClick }) => {
+  const dispatch = useDispatch();
+
+  const handleClick = () => {
+    dispatch(selectDay(day));
+    onDayClick();
+  };
+
   const classNames = () => {
     let additionalClasses = '';
 
@@ -12,7 +21,7 @@ const CalendarDay = ({ day }) => {
       additionalClasses += ' disabled';
     }
 
-    if ((new Date().toDateString() === day.dateObj.toDateString())) {
+    if (new Date().toDateString() === day.dateObj.toDateString()) {
       additionalClasses += ' today';
     }
 
@@ -20,7 +29,7 @@ const CalendarDay = ({ day }) => {
   };
 
   return (
-    <div className={`calendar-day${classNames()}`}>
+    <div className={`calendar-day${classNames()}`} onClick={handleClick}>
       <span className="date-number">{day.date}</span>
     </div>
   );

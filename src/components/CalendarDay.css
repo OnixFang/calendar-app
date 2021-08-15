@@ -1,0 +1,22 @@
+.calendar-day {
+  background-color: #fff;
+  font-weight: 700;
+  height: 80px;
+}
+
+.calendar-day.weekend {
+  background-color: var(--light-gray-background);
+  color: var(--blue-background);
+}
+
+.calendar-day.disabled {
+  color: var(--gray-text);
+}
+
+.date-number {
+  margin-left: 8px;
+}
+
+.calendar-day.today {
+  background-color: var(--light-blue-background);
+}

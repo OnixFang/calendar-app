@@ -1,0 +1,16 @@
+.month-navigator {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--dark-blue-background);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  padding: 20px;
+}
+
+.month-navigator h1 {
+  color: #fff;
+  font-size: 3.5em;
+  text-align: center;
+  margin: 0;
+}

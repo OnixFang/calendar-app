@@ -1,7 +1,10 @@
 import './styles.css';
+import { useSelector } from 'react-redux';
 import Reminder from '../Reminder';
 
-const ReminderList = ({ reminders }) => {
+const ReminderList = () => {
+  const reminders = useSelector((store) => store.selectedDay.reminders);
+
   if (reminders.length) {
     return (
       <ul className="reminder-list collection with-header top-margin">

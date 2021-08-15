@@ -63,7 +63,7 @@ const DayDetails = ({ closeModal }) => {
             <i className="material-icons">close</i>
           </button>
           <h5>{renderedDate}</h5>
-          <ReminderList reminders={reminders} />
+          <ReminderList />
         </div>
         <div className="modal-footer">
           <div className="modal-buttons">

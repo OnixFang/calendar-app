@@ -1,13 +1,13 @@
 import './Calendar.css';
 import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { getMonthDays } from './calendarHelper';
 import CalendarDay from './CalendarDay';
 import MonthNavigator from './MonthNavigator';
 
 const Calendar = () => {
-  const [currentDate, setCurrentDate] = useState(new Date());
+  const currentDate = useSelector((store) => store.currentDate);
   const [calendarDays, setCalendarDays] = useState([]);
-  const [monthNavigation, setMonthNavigation] = useState(0);
 
   useEffect(() => {
     setCalendarDays(getMonthDays(currentDate));

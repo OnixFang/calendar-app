@@ -8,14 +8,14 @@ const MonthNavigator = () => {
 
   return (
     <div className="month-navigator">
-      <button onClick={() => dispatch(decrementMonth())} className="btn">
+      <button onClick={() => dispatch(decrementMonth())} className="btn waves-effect">
         Prev
       </button>
       <h1>
         {currentDate.toLocaleDateString('en-us', { month: 'long' })}{' '}
         {currentDate.getFullYear()}
       </h1>
-      <button onClick={() => dispatch(incrementMonth())} className="btn">
+      <button onClick={() => dispatch(incrementMonth())} className="btn waves-effect">
         Next
       </button>
     </div>

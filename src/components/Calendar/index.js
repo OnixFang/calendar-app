@@ -1,11 +1,11 @@
-import './Calendar.css';
+import './styles.css';
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { getMonthDays } from './calendarHelper';
-import CalendarDay from './CalendarDay';
-import MonthNavigator from './MonthNavigator';
-import DayDetails from './DayDetails';
-import Modal from './Modal';
+import { getMonthDays } from '../calendarHelper';
+import CalendarDay from '../CalendarDay';
+import MonthNavigator from '../MonthNavigator';
+import DayDetails from '../DayDetails';
+import Modal from '../Modal';
 
 const Calendar = () => {
   const currentDate = useSelector((store) => store.currentDate);
@@ -28,8 +28,8 @@ const Calendar = () => {
 
   return (
     <div className="calendar">
-      <Modal modalIsOpen={modalIsOpen} closeModal={toggleModal}>
-        <DayDetails />
+      <Modal modalIsOpen={modalIsOpen}>
+        <DayDetails closeModal={toggleModal} />
       </Modal>
       <MonthNavigator currentDate={currentDate} />
       <div className="calendar-header">

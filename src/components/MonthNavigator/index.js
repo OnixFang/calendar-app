@@ -1,6 +1,6 @@
+import './styles.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { incrementMonth, decrementMonth } from '../store/currentDate/actions';
-import './MonthNavigator.css';
+import { incrementMonth, decrementMonth } from '../../store/currentDate/actions';
 
 const MonthNavigator = () => {
   const currentDate = useSelector((store) => store.currentDate);

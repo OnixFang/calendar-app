@@ -1,6 +1,6 @@
-import './CalendarDay.css';
+import './styles.css';
 import { useDispatch } from 'react-redux';
-import { selectDay } from '../store/selectedDay/actions';
+import { selectDay } from '../../store/selectedDay/actions';
 
 const CalendarDay = ({ day, onDayClick }) => {
   const dispatch = useDispatch();

@@ -1,0 +1,17 @@
+.reminder {
+  display: flex;
+}
+
+.reminder-content {
+  padding: 5px 50px 5px 10px;
+}
+
+.reminder-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.reminder-actions button {
+  margin: 0 5px;
+}

@@ -1,4 +1,4 @@
-import './Modal.css';
+import './styles.css';
 import { useEffect, useRef } from 'react';
 import M from 'materialize-css';
 
@@ -18,16 +18,8 @@ const Modal = ({ modalIsOpen, closeModal, children }) => {
   }, [modalIsOpen]);
 
   return (
-    <div ref={modalRef} className="modal">
-      <div className="modal-content">
-        <h4>Modal Header</h4>
-        {children}
-      </div>
-      <div className="modal-footer">
-        <button onClick={closeModal} className="waves-effect btn">
-          Close
-        </button>
-      </div>
+    <div ref={modalRef} className="modal modal-fixed-footer">
+      {children}
     </div>
   );
 };

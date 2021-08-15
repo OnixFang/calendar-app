@@ -1,12 +1,12 @@
 import { createStore, combineReducers } from 'redux';
-import currentDate from './currentDate';
+import currentDateReducer from './currentDate';
 import remindersReducer from './reminders';
 import selectedDayReducer from './selectedDay';
 
 const reducers = combineReducers({
-  currentDate,
-  remindersReducer,
-  selectedDayReducer,
+  currentDate: currentDateReducer,
+  reminders: remindersReducer,
+  selectedDay: selectedDayReducer,
 });
 
 export default createStore(

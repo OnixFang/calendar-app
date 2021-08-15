@@ -1,5 +1,14 @@
+import './App.css';
+import Calendar from './Calendar';
+
 const App = () => {
-  return <div>App</div>;
+  return (
+    <div className="app">
+      <div>
+        <Calendar />
+      </div>
+    </div>
+  );
 };
 
 export default App;

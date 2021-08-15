@@ -4,7 +4,7 @@ import Calendar from './Calendar';
 const App = () => {
   return (
     <div className="app">
-      <div>
+      <div className="container">
         <Calendar />
       </div>
     </div>

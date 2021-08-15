@@ -12,6 +12,10 @@ const CalendarDay = ({ day }) => {
       additionalClasses += ' disabled';
     }
 
+    if ((new Date().toDateString() === day.dateObj.toDateString())) {
+      additionalClasses += ' today';
+    }
+
     return additionalClasses;
   };
 

@@ -16,3 +16,7 @@
 .date-number {
   margin-left: 8px;
 }
+
+.calendar-day.today {
+  background-color: var(--light-blue-background);
+}

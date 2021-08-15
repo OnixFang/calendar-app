@@ -4,14 +4,20 @@ import { useSelector } from 'react-redux';
 import { getMonthDays } from './calendarHelper';
 import CalendarDay from './CalendarDay';
 import MonthNavigator from './MonthNavigator';
+import Modal from './Modal';
 
 const Calendar = () => {
   const currentDate = useSelector((store) => store.currentDate);
   const [calendarDays, setCalendarDays] = useState([]);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   useEffect(() => {
     setCalendarDays(getMonthDays(currentDate));
   }, [currentDate]);
+
+  const toggleModal = () => {
+    setModalIsOpen(!modalIsOpen);
+  };
 
   const renderedDays = () => {
     return calendarDays.map((day, index) => (
@@ -21,6 +27,9 @@ const Calendar = () => {
 
   return (
     <div className="calendar">
+      <Modal modalIsOpen={modalIsOpen} closeModal={toggleModal}>
+        <p>Test</p>
+      </Modal>
       <MonthNavigator currentDate={currentDate} />
       <div className="calendar-header">
         <span>Sunday</span>
@@ -32,6 +41,11 @@ const Calendar = () => {
         <span>Saturday</span>
       </div>
       <div className="calendar-body">{renderedDays()}</div>
+      <div>
+        <button onClick={toggleModal} className="btn waves-effect">
+          Open modal
+        </button>
+      </div>
     </div>
   );
 };

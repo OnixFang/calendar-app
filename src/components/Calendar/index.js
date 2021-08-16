@@ -1,5 +1,4 @@
 import './styles.css';
-import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import useCalendarDays from '../../hooks/useCalendarDays';
 import CalendarDay from '../CalendarDay';
@@ -12,15 +11,10 @@ const Calendar = () => {
   const selectedDay = useSelector((store) => store.selectedDay);
   const selectedReminder = useSelector((store) => store.selectedReminder);
   const calendarDays = useCalendarDays();
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-
-  const toggleModal = () => {
-    setModalIsOpen(!modalIsOpen);
-  };
 
   const renderedDays = () => {
     return calendarDays.map((day, index) => (
-      <CalendarDay key={index} day={day} onDayClick={toggleModal} />
+      <CalendarDay key={index} day={day} />
     ));
   };
 

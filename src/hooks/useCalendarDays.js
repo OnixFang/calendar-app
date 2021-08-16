@@ -2,10 +2,23 @@ import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 const useCalendarDays = () => {
+  const reminders = useSelector((store) => store.reminders);
   const currentDate = useSelector((store) => store.currentDate);
   const [calendarDays, setCalendarDays] = useState([]);
 
   useEffect(() => {
+    const getDayObject = (dateObj, enabled = false) => ({
+      dateObj,
+      day: dateObj.getDay(),
+      date: dateObj.getDate(),
+      month: dateObj.getMonth(),
+      year: dateObj.getFullYear(),
+      reminders: reminders.filter(
+        (reminder) => reminder.date === dateObj.toDateString()
+      ),
+      enabled,
+    });
+
     const getMonthDays = (currentDate) => {
       const days = [];
 
@@ -58,17 +71,7 @@ const useCalendarDays = () => {
     };
 
     setCalendarDays(getMonthDays(currentDate));
-  }, [currentDate]);
-
-  const getDayObject = (dateObj, enabled = false) => ({
-    dateObj,
-    day: dateObj.getDay(),
-    date: dateObj.getDate(),
-    month: dateObj.getMonth(),
-    year: dateObj.getFullYear(),
-    reminders: [],
-    enabled,
-  });
+  }, [currentDate, reminders]);
 
   return calendarDays;
 };

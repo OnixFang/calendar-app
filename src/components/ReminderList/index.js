@@ -12,7 +12,9 @@ const ReminderList = () => {
           <h4>Reminders</h4>
         </li>
         {reminders.map((reminder) => (
-          <Reminder key={reminder.id} reminder={reminder} />
+          <li className="collection-item">
+            <Reminder key={reminder.id} reminder={reminder} />
+          </li>
         ))}
       </ul>
     );

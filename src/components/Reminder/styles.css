@@ -3,7 +3,8 @@
 }
 
 .reminder-content {
-  padding: 5px 50px 5px 10px;
+  flex-grow: 1;
+  padding-right: 50px;
 }
 
 .reminder-actions {

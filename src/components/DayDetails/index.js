@@ -7,7 +7,7 @@ import ReminderList from '../ReminderList';
 
 const DayDetails = () => {
   const dispatch = useDispatch();
-  const day = useSelector((store) => store.selectedDay);
+  const selectedDay = useSelector((store) => store.selectedDay);
 
   const onClose = () => {
     dispatch(deselectDay());
@@ -18,7 +18,7 @@ const DayDetails = () => {
       id: nanoid(),
       text: '',
       city: '',
-      date: day.dateObj.toDateString(),
+      date: selectedDay.dateObj.toDateString(),
       time: '',
       weather: '',
       color: '',
@@ -27,7 +27,7 @@ const DayDetails = () => {
     dispatch(selectReminder(newReminder));
   };
 
-  const renderedDate = `${day.dateObj.toLocaleDateString('en-us', {
+  const renderedDate = `${selectedDay.dateObj.toLocaleDateString('en-us', {
     weekday: 'long',
     month: 'long',
     day: 'numeric',

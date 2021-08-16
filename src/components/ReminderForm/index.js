@@ -22,8 +22,7 @@ const ReminderForm = () => {
 
   const onFormSubmit = (event) => {
     event.preventDefault();
-    console.log('Form submitted');
-    console.log(reminderData);
+
     dispatch(addReminder(reminderData));
     dispatch(deselectReminder());
   };

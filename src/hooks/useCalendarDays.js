@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectDay } from '../store/selectedDay/actions';
 
 const useCalendarDays = () => {
+  const dispatch = useDispatch();
   const reminders = useSelector((store) => store.reminders);
   const currentDate = useSelector((store) => store.currentDate);
+  const selectedDay = useSelector((store) => store.selectedDay);
   const [calendarDays, setCalendarDays] = useState([]);
 
   useEffect(() => {
@@ -72,6 +75,20 @@ const useCalendarDays = () => {
 
     setCalendarDays(getMonthDays(currentDate));
   }, [currentDate, reminders]);
+
+  useEffect(() => {
+    console.log('updating selected day');
+    if (selectedDay) {
+      dispatch(
+        selectDay(
+          calendarDays.find(
+            (day) =>
+              day.dateObj.toDateString() === selectedDay.dateObj.toDateString()
+          )
+        )
+      );
+    }
+  }, [calendarDays, selectedDay, dispatch]);
 
   return calendarDays;
 };

@@ -2,7 +2,7 @@ import './styles.css';
 
 const Reminder = ({ reminder }) => {
   return (
-    <div className={`reminder ${reminder.color}`}>
+    <div className={`reminder`}>
       <div className="reminder-content">
         <p>{reminder.text}</p>
         <p>{reminder.city}, {reminder.time}, Weather: {reminder.weather}</p>

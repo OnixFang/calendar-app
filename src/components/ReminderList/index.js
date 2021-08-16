@@ -12,8 +12,8 @@ const ReminderList = () => {
           <h4>Reminders</h4>
         </li>
         {reminders.map((reminder) => (
-          <li className="collection-item">
-            <Reminder key={reminder.id} reminder={reminder} />
+          <li key={reminder.id} className={`collection-item ${reminder.color}`}>
+            <Reminder reminder={reminder} />
           </li>
         ))}
       </ul>

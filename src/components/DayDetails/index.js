@@ -2,6 +2,7 @@ import './styles.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectReminder } from '../../store/selectedReminder/actions';
 import { deselectDay } from '../../store/selectedDay/actions';
+import { nanoid } from 'nanoid';
 import ReminderList from '../ReminderList';
 
 const DayDetails = () => {
@@ -14,7 +15,7 @@ const DayDetails = () => {
 
   const onAddReminder = () => {
     const newReminder = {
-      id: null,
+      id: nanoid(),
       text: '',
       city: '',
       date: day.dateObj.toDateString(),

@@ -77,7 +77,6 @@ const useCalendarDays = () => {
   }, [currentDate, reminders]);
 
   useEffect(() => {
-    console.log('updating selected day');
     if (selectedDay) {
       dispatch(
         selectDay(

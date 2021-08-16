@@ -9,6 +9,7 @@ const ReminderForm = () => {
   const day = useSelector((store) => store.selectedDay);
   const selectedReminder = useSelector((store) => store.selectedReminder);
   const [reminderData, setReminderData] = useState({ ...selectedReminder });
+  const textRef = useRef(null);
   const selectRef = useRef(null);
 
   const renderedDate = `${day.dateObj.toLocaleDateString('en-us', {
@@ -29,12 +30,16 @@ const ReminderForm = () => {
   };
 
   const handleReminderChange = (event) => {
-    setReminderData({ ...reminderData, [event.target.id]: event.target.value });
+    setReminderData({
+      ...reminderData,
+      [event.target.name]: event.target.value,
+    });
   };
 
   useEffect(() => {
     M.updateTextFields();
     M.FormSelect.init(selectRef.current);
+    M.CharacterCounter.init(textRef.current);
   }, []);
 
   return (
@@ -44,34 +49,38 @@ const ReminderForm = () => {
         <div className="row">
           <div className="input-field col s12">
             <textarea
+              ref={textRef}
               value={reminderData.text}
               onChange={handleReminderChange}
-              id="text"
+              name="text"
               className="materialize-textarea validate"
               data-length="30"
               maxLength="30"
+              required
             ></textarea>
-            <label htmlFor="reminder-text">Reminder text</label>
+            <label htmlFor="reminder-text">Text</label>
           </div>
         </div>
         <div className="row">
           <div className="input-field col s6">
             <input
-              id="city"
+              name="city"
               value={reminderData.city}
               onChange={handleReminderChange}
               type="text"
               className="validate"
+              required
             />
             <label htmlFor="city">City</label>
           </div>
           <div className="input-field col s6">
             <input
-              id="time"
+              name="time"
               value={reminderData.time}
               onChange={handleReminderChange}
               type="time"
               className="validate"
+              required
             />
             <label htmlFor="time">Time</label>
           </div>
@@ -79,7 +88,7 @@ const ReminderForm = () => {
         <div className="row">
           <div className="input-field col s6">
             <select
-              id="color"
+              name="color"
               ref={selectRef}
               value={reminderData.color}
               onChange={handleReminderChange}
@@ -98,7 +107,11 @@ const ReminderForm = () => {
           <button type="submit" className="btn waves-effect blue">
             Save
           </button>
-          <button onClick={onFormCancel} className="btn waves-effect red">
+          <button
+            type="button"
+            onClick={onFormCancel}
+            className="btn waves-effect red"
+          >
             Cancel
           </button>
         </div>

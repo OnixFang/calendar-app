@@ -1,4 +1,5 @@
 .calendar-day {
+  position: relative;
   background-color: #fff;
   font-weight: 700;
   height: 80px;
@@ -15,6 +16,12 @@
 
 .date-number {
   margin-left: 8px;
+}
+
+.reminder-count {
+  position: absolute;
+  right: 2px;
+  bottom: 2px;
 }
 
 .calendar-day.today {

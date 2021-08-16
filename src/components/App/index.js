@@ -1,5 +1,5 @@
-import './App.css';
-import Calendar from './Calendar';
+import './styles.css';
+import Calendar from '../Calendar';
 
 const App = () => {
   return (

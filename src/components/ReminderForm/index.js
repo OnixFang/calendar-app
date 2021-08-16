@@ -7,13 +7,13 @@ import M from 'materialize-css';
 
 const ReminderForm = () => {
   const dispatch = useDispatch();
-  const day = useSelector((store) => store.selectedDay);
+  const selectedDay = useSelector((store) => store.selectedDay);
   const selectedReminder = useSelector((store) => store.selectedReminder);
   const [reminderData, setReminderData] = useState({ ...selectedReminder });
   const textRef = useRef(null);
   const selectRef = useRef(null);
 
-  const renderedDate = `${day.dateObj.toLocaleDateString('en-us', {
+  const renderedDate = `${selectedDay.dateObj.toLocaleDateString('en-us', {
     weekday: 'long',
     month: 'long',
     day: 'numeric',

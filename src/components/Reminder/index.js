@@ -14,12 +14,19 @@ const Reminder = ({ reminder }) => {
     dispatch(deleteReminder(reminder));
   };
 
+  const renderedTime = () => {
+    return new Date(`${reminder.date} ${reminder.time}`).toLocaleTimeString(
+      'en-us',
+      { timeStyle: 'short' }
+    );
+  };
+
   return (
     <div className={`reminder`}>
       <div className="reminder-content">
         <p>{reminder.text}</p>
         <p>
-          {reminder.city}, {reminder.time}, Weather: {reminder.weather}
+          {reminder.city}, {renderedTime()}, Weather: {reminder.weather}
         </p>
       </div>
       <div className="reminder-actions">

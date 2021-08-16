@@ -4,7 +4,7 @@ import store from './store';
 import { Provider } from 'react-redux';
 import 'materialize-css/dist/css/materialize.min.css';
 
-import './index.css';
+import './styles.css';
 import App from './components/App';
 
 if (module.hot) {

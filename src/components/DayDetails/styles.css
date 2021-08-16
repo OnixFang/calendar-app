@@ -1,0 +1,8 @@
+.action-buttons {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: max-content;
+  gap: 10px;
+  width: fit-content;
+  margin: auto;
+}

@@ -1,12 +1,16 @@
 import './styles.css';
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import useCalendarDays from '../../hooks/useCalendarDays';
 import CalendarDay from '../CalendarDay';
 import MonthNavigator from '../MonthNavigator';
 import DayDetails from '../DayDetails';
+import ReminderForm from '../ReminderForm';
 import Modal from '../Modal';
 
 const Calendar = () => {
+  const selectedDay = useSelector((store) => store.selectedDay);
+  const selectedReminder = useSelector((store) => store.selectedReminder);
   const calendarDays = useCalendarDays();
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
@@ -20,11 +24,32 @@ const Calendar = () => {
     ));
   };
 
+  const renderDayDetails = () => {
+    if (selectedDay) {
+      return (
+        <Modal>
+          <DayDetails />;
+        </Modal>
+      );
+    }
+    return null;
+  };
+
+  const renderReminderForm = () => {
+    if (selectedReminder) {
+      return (
+        <Modal>
+          <ReminderForm />
+        </Modal>
+      );
+    }
+    return null;
+  };
+
   return (
     <div className="calendar">
-      <Modal modalIsOpen={modalIsOpen}>
-        <DayDetails closeModal={toggleModal} />
-      </Modal>
+      {renderDayDetails()}
+      {renderReminderForm()}
       <MonthNavigator />
       <div className="calendar-header">
         <span>Sunday</span>

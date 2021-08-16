@@ -1,17 +1,38 @@
 import './styles.css';
+import { useDispatch } from 'react-redux';
+import { selectReminder } from '../../store/selectedReminder/actions';
+import { deleteReminder } from '../../store/reminders/actions';
 
 const Reminder = ({ reminder }) => {
+  const dispatch = useDispatch();
+
+  const onEdit = () => {
+    dispatch(selectReminder(reminder));
+  };
+
+  const onDelete = () => {
+    dispatch(deleteReminder(reminder));
+  };
+
   return (
     <div className={`reminder`}>
       <div className="reminder-content">
         <p>{reminder.text}</p>
-        <p>{reminder.city}, {reminder.time}, Weather: {reminder.weather}</p>
+        <p>
+          {reminder.city}, {reminder.time}, Weather: {reminder.weather}
+        </p>
       </div>
       <div className="reminder-actions">
-        <button className="btn-floating btn-small waves-effect blue">
+        <button
+          onClick={onEdit}
+          className="btn-floating btn-small waves-effect blue"
+        >
           <i className="material-icons">edit</i>
         </button>
-        <button className="btn-floating btn-small waves-effect red">
+        <button
+          onClick={onDelete}
+          className="btn-floating btn-small waves-effect red"
+        >
           <i className="material-icons">delete</i>
         </button>
       </div>

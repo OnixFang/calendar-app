@@ -2,6 +2,7 @@ import './styles.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectReminder } from '../../store/selectedReminder/actions';
 import { deselectDay } from '../../store/selectedDay/actions';
+import { deleteAllReminders } from '../../store/reminders/actions';
 import { nanoid } from 'nanoid';
 import ReminderList from '../ReminderList';
 
@@ -25,6 +26,10 @@ const DayDetails = () => {
     };
 
     dispatch(selectReminder(newReminder));
+  };
+
+  const onDeleteAll = () => {
+    dispatch(deleteAllReminders(selectedDay.dateObj));
   };
 
   const renderedDate = `${selectedDay.dateObj.toLocaleDateString('en-us', {
@@ -51,7 +56,9 @@ const DayDetails = () => {
           <button onClick={onAddReminder} className="btn waves-effect blue">
             Add reminder
           </button>
-          <button className="btn waves-effect red">Delete all</button>
+          <button onClick={onDeleteAll} className="btn waves-effect red">
+            Delete all
+          </button>
         </div>
       </div>
     </div>

@@ -17,7 +17,7 @@ const remindersReducer = (state = [], action) => {
     case actions.DELETE_ALL_REMINDERS:
       return state.filter(
         (reminder) =>
-          reminder.date.toDateString() !== action.payload.date.toDateString()
+          reminder.date !== action.payload.toDateString()
       );
     default:
       return state;

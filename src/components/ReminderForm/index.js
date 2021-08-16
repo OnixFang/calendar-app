@@ -1,6 +1,7 @@
 import './styles.css';
 import { useState, useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { addReminder } from '../../store/reminders/actions';
 import { deselectReminder } from '../../store/selectedReminder/actions';
 import M from 'materialize-css';
 
@@ -23,6 +24,8 @@ const ReminderForm = () => {
     event.preventDefault();
     console.log('Form submitted');
     console.log(reminderData);
+    dispatch(addReminder(reminderData));
+    dispatch(deselectReminder());
   };
 
   const onFormCancel = () => {

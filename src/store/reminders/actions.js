@@ -7,13 +7,6 @@ export const addReminder = (reminder) => {
   };
 };
 
-export const editReminder = (reminder) => {
-  return {
-    type: actions.EDIT_REMINDER,
-    payload: reminder,
-  };
-};
-
 export const deleteReminder = (id) => {
   return {
     type: actions.DELETE_REMINDER,

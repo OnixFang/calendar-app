@@ -35,7 +35,7 @@ The app is also available online through Netlify on this link: [Calendar App](ht
 - COMPLETE: Properly handle overflow when multiple reminders appear on the same date.
 - COMPLETE: Functionality to delete one or ALL the reminders for a specific day.
 
-### **Extra feature (Chocen by me)**
+### **Extra feature (Chosen by me)**
 
 - COMPLETE: Highlight current day (today's day).
 - PENDING: Select country to mark local holidays to the calendar. API: [Public Holiday API](https://date.nager.at/Api).
